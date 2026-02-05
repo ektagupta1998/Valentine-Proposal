@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Valentine Proposal</title>
+
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  overflow: hidden;
+  font-family: 'Poppins', sans-serif;
+  /* background: linear-gradient(135deg, #ff4e50, #ff9a9e); */
+  background: linear-gradient(135deg, #f8cdda, #f9a7b0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.container {
+  text-align: center;
+  z-index: 2;
+}
+
+h1 {
+  font-size: 2.8rem;
+  margin-bottom: 20px;
+}
+
+/* Buttons */
+button {
+  padding: 15px 30px;
+  font-size: 18px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+#yesBtn {
+      background: #ff4d6d;
+    color: white;
+  /* background: #fff;
+  color: #ff4e50; */
+  margin-right: 20px;
+}
+
+#noBtn {
+  /* background: #ff0000;
+  color: #fff; */
+  background: #8ecae6;
+    color: white;
+}
+
+button:hover {
+  transform: scale(1.1);
+}
+
+/* floating hearts */
+.heart {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: red;
+  transform: rotate(45deg);
+  animation: float 6s linear infinite;
+}
+
+#message  { color: #c9184a !important; }
+
+.heart::before,
+.heart::after {
+  content: '';
+  width: 20px;
+  height: 20px;
+  background: red;
+  border-radius: 50%;
+  position: absolute;
+}
+.heart::before { top: -10px; left: 0; }
+.heart::after { left: -10px; top: 0; }
+
+@keyframes float {
+  0% { bottom: -10%; opacity: 1; }
+  100% { bottom: 110%; opacity: 0; }
+}
+
+/* CARD */
+.card {
+  background: #f6f1e9;
+  width: 750px;
+  padding: 40px;
+  border-radius: 30px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+  border: 8px solid #ff8fa3;
+}
+
+/* DOUBLE BORDER EFFECT */
+.card::before {
+  content:"";
+  position:absolute;
+  inset:-15px;
+  border-radius:40px;
+  border:8px solid #8ecae6;
+  z-index:-1;
+}
+
+/* HEART DECORATION */
+.heart-deco {
+  position:absolute;
+  font-size:30px;
+}
+
+.h1 { top:-20px; left:-20px; }
+.h2 { bottom:-20px; right:-20px; }
+.white-heart { color: white; }
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+ <div class="card">
+  <div class="heart-deco h1">💖</div>
+  <div class="heart-deco h2">💙</div>
+
+   <img id="yesImage" src="pngtree.png"
+       alt="Love"
+       style="display:none; width:250px; margin-bottom:15px; margin: 0 auto 0px auto; ">
+
+  <h1 id="message">Anjali, will you be my Valentine? 💖</h1>
+  <button id="yesBtn">Yes 🤍 </button>
+  <button id="noBtn">No</button> 
+</div>
+
+</div>
+
+</div>
+
+<script>
+// Yes button - Click
+// document.getElementById("yesBtn").addEventListener("click", () => {
+//   document.getElementById("message").innerText =
+//     "Yay!! You said Yes! 💕❤️";
+// });
+document.getElementById("yesBtn").addEventListener("click", () => {
+  document.getElementById("message").innerText =
+    "Yay!! You said Yes! 💕❤️";
+
+  document.getElementById("yesImage").style.display = "block";
+});
+
+// No button - Move when hovered
+const noBtn = document.getElementById("noBtn");
+
+noBtn.addEventListener("mouseover", () => {
+  let x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+  let y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+  noBtn.style.position = "absolute";
+  noBtn.style.left = x + "px";
+  noBtn.style.top = y + "px";
+});
+
+// Hearts floating
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.animationDuration = (Math.random() * 3 + 4) + "s";
+  document.body.appendChild(heart);
+
+  setTimeout(() => heart.remove(), 6000);
+}
+
+setInterval(createHeart, 250);
+</script>
+
+</body>
+</html>
