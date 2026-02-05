@@ -25,7 +25,7 @@ body {
 }
 
 h1 {
-  font-size: 2.8rem;
+  font-size: 2.7rem;
   margin-bottom: 20px;
 }
 
@@ -68,7 +68,7 @@ button:hover {
   animation: float 6s linear infinite;
 }
 
-#message  { color: #c9184a !important; }
+#message  { color: #000 !important; margin: 0px !important; padding-bottom: 35px; }
 
 .heart::before,
 .heart::after {
@@ -97,6 +97,7 @@ button:hover {
   position: relative;
   box-shadow: 0 20px 40px rgba(0,0,0,0.15);
   border: 8px solid #ff8fa3;
+  min-height: 360px;
 }
 
 /* DOUBLE BORDER EFFECT */
@@ -118,6 +119,7 @@ button:hover {
 .h1 { top:-20px; left:-20px; }
 .h2 { bottom:-20px; right:-20px; }
 .white-heart { color: white; }
+.cute-imgbox { mix-blend-mode: multiply; }
 
 </style>
 </head>
@@ -130,13 +132,10 @@ button:hover {
   <div class="heart-deco h1">💖</div>
   <div class="heart-deco h2">💙</div>
 
-   <img id="yesImage" src="pngtree.png"
-       alt="Love"
-       style="display:none; width:250px; margin-bottom:15px; margin: 0 auto 0px auto; ">
-
+  <img src="heart3.jfif" class="cute-imgbox" alt="">
   <h1 id="message">Anjali, will you be my Valentine? 💖</h1>
   <button id="yesBtn">Yes 🤍 </button>
-  <button id="noBtn">No</button> 
+  <button id="noBtn">No 😒</button> 
 </div>
 
 </div>
@@ -149,12 +148,42 @@ button:hover {
 //   document.getElementById("message").innerText =
 //     "Yay!! You said Yes! 💕❤️";
 // });
-document.getElementById("yesBtn").addEventListener("click", () => {
-  document.getElementById("message").innerText =
-    "Yay!! You said Yes! 💕❤️";
 
-  document.getElementById("yesImage").style.display = "block";
+// document.getElementById("yesBtn").addEventListener("click", () => {
+//   document.getElementById("message").innerText =
+//     `You are truly special ✨ and when I say special, I mean it in the deepest, most heartfelt way ❤️
+// Talking to you feels easy, sharing my thoughts feels safe 🕊️💕✨.
+// You listen without judgment, without limits 💫🌷🌙.
+// It took time for me to realize that you’re not like the others 😁💛🤗❤️.
+// You corrected me when I was wrong, stood by me when I was weak 🤝💗,
+// and reminded me that I am loved and important 💞🌍❤️,
+// Stay with me forever🤲✨💖♾️.`;
+
+//   document.getElementById("yesImage").style.display = "block";
+  
+// });
+
+document.getElementById("yesBtn").addEventListener("click", () => {
+
+  const messageEl = document.getElementById("message");
+  const imgEl = document.getElementById("yesImage");
+  const noBtn = document.getElementById("noBtn");
+
+  messageEl.innerText = `You’re truly special ✨
+  Talking to you feels safe and easy 🕊️
+  Stay with me always 🤍♾️`
+
+  messageEl.style.fontSize = "16px";
+  
+  // show image
+  if (imgEl) {
+    imgEl.style.display = "block";
+  }
+  noBtn.style.display = "none";
+  // change font size
+ 
 });
+
 
 // No button - Move when hovered
 const noBtn = document.getElementById("noBtn");
