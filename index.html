@@ -68,7 +68,7 @@ button:hover {
   animation: float 6s linear infinite;
 }
 
-#message  { color: #000 !important; margin: 0px !important; padding-bottom: 35px; }
+#message  { color: #000 !important; margin: 0px !important;   padding-bottom: 35px;}
 
 .heart::before,
 .heart::after {
@@ -143,45 +143,28 @@ button:hover {
 </div>
 
 <script>
-// Yes button - Click
-// document.getElementById("yesBtn").addEventListener("click", () => {
-//   document.getElementById("message").innerText =
-//     "Yay!! You said Yes! 💕❤️";
-// });
 
-// document.getElementById("yesBtn").addEventListener("click", () => {
-//   document.getElementById("message").innerText =
-//     `You are truly special ✨ and when I say special, I mean it in the deepest, most heartfelt way ❤️
-// Talking to you feels easy, sharing my thoughts feels safe 🕊️💕✨.
-// You listen without judgment, without limits 💫🌷🌙.
-// It took time for me to realize that you’re not like the others 😁💛🤗❤️.
-// You corrected me when I was wrong, stood by me when I was weak 🤝💗,
-// and reminded me that I am loved and important 💞🌍❤️,
-// Stay with me forever🤲✨💖♾️.`;
-
-//   document.getElementById("yesImage").style.display = "block";
-  
-// });
-
-document.getElementById("yesBtn").addEventListener("click", () => {
-
+  document.getElementById("yesBtn").addEventListener("click", () => {
   const messageEl = document.getElementById("message");
-  const imgEl = document.getElementById("yesImage");
-  const noBtn = document.getElementById("noBtn");
+  const cuteImg = document.querySelector(".cute-imgbox");
 
-  messageEl.innerText = `You’re truly special ✨
-  Talking to you feels safe and easy 🕊️
-  Stay with me always 🤍♾️`
+  messageEl.innerHTML = `
+    💖✨ YAY!! ✨💖 <br>
+    <img src="./YEaQWIJRg6dTa.webp" style="margin-top:10px;" />
+    <br>
+    <p style="font-size:20px; margin-bottom:0; margin-top: 10px;">
+      Best decision ever 💫🌷😁 <br> you're truly special ✨ <br>
+      Taking to you feels safe and easy 🕊️💕✨<br>
+      Stay with me always 💖♾️
+    </p>
+  `;
 
-  messageEl.style.fontSize = "16px";
-  
-  // show image
-  if (imgEl) {
-    imgEl.style.display = "block";
-  }
+  yesBtn.style.display = "none";
   noBtn.style.display = "none";
-  // change font size
- 
+  if (cuteImg) {
+    cuteImg.style.display = "none";
+  }
+
 });
 
 
